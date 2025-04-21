@@ -124,7 +124,8 @@ export function Sidebar() {
                           : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                       )}
                     >
-                      <Icon className="h-5 w-5" />
+                      <Icon className="h-7 w-7 bg-primary-foreground rounded-md p-1.5
+                      " />
                         <span className="flex-1 text-left">{item.name}</span>
                     </button>
                     {isSubOpen && (
@@ -161,12 +162,12 @@ export function Sidebar() {
                   className={cn(
                     "flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
                     isActive
-                      ? "bg-accent text-accent-foreground"
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                      ? "bg-primary-foreground text-muted-foreground"
+                      : "text-muted-foreground hover:bg-primary-foreground hover:text-muted-foreground"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
-                  <Icon className="mr-3 h-5 w-5" />
+                  <Icon className="mr-3 h-7 w-7 bg-primary-foreground rounded-md p-1.5 " />
                   {item.name}
                 </Link>
               );
@@ -174,13 +175,13 @@ export function Sidebar() {
           </nav>
         </ScrollArea>
         <div className="border-t p-4 ">
-          <div className="flex items-center bg-muted p-3 gap-2 rounded-md mt-auto">
+          <div className="flex items-center bg-primary p-3 gap-2 rounded-md mt-auto">
             <div className="h-10 w-10 flex items-center justify-center">
-              <PhoneCall className='w-7 h-7'>Tell</PhoneCall>
+              <PhoneCall className='w-7 h-7 text-white'>Tell</PhoneCall>
             </div>
             <div>
-              <p className="text-medium font-bold ">+351 912 345 678</p>
-              <p className="text-medium text-muted-foreground">Call us</p>
+              <p className="text-medium font-bold  text-white">+351 912 345 678</p>
+              <p className="text-medium text-muted-foreground text-white">Call us</p>
             </div>
           </div>
         </div>

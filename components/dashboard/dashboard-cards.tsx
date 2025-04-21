@@ -1,5 +1,6 @@
-import { Eye, CalendarClock, TrendingUp, EuroIcon } from 'lucide-react';
+import { Eye, CalendarClock, TrendingUp, EuroIcon, ArrowRightIcon} from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
 
 export function DashboardCards() {
   const cards = [
@@ -9,7 +10,8 @@ export function DashboardCards() {
       description: "Active patients",
       change: "+14.6%",
       icon: Eye,
-      trend: "up"
+      trend: "up",
+      href: "/patients"
     },
     {
       title: "Appointments",
@@ -17,7 +19,8 @@ export function DashboardCards() {
       description: "This month",
       change: "+5.2%",
       icon: CalendarClock,
-      trend: "up"
+      trend: "up",
+      href: "/appointments"
     },
     {
       title: "Revenue",
@@ -25,7 +28,8 @@ export function DashboardCards() {
       description: "This month",
       change: "+10.3%",
       icon: EuroIcon,
-      trend: "up"
+      trend: "up",
+      href: "/revenue"
     },
     {
       title: "New Patients",
@@ -33,7 +37,8 @@ export function DashboardCards() {
       description: "This week",
       change: "+18.7%",
       icon: TrendingUp,
-      trend: "up"
+      trend: "up",
+      href: "/new-patients"
     }
   ];
 
@@ -43,15 +48,23 @@ export function DashboardCards() {
         <Card key={index} className="overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
             <CardTitle className="text-sm font-medium">{card.title}</CardTitle>
-            <card.icon className="h-4 w-4 text-muted-foreground" />
+            <div className=' rounded-full p-2  border border-primary'>
+              <card.icon className="w-12 h-12 text-primary rounded-full p-3 bg-primary-foreground" />
+            </div>
+            
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{card.value}</div>
+            <div className="text-3xl font-bold">{card.value}</div>
             <div className="flex items-center pt-1">
               <CardDescription className="text-xs">{card.description}</CardDescription>
               <div className={`ml-auto text-xs font-medium ${card.trend === 'up' ? 'text-green-500' : 'text-red-500'}`}>
                 {card.change}
               </div>
+            </div>
+            <div className="flex items-center pt-1 text-sm text-primary">
+              <Link href={card.href}> View All </Link>
+              <ArrowRightIcon className="w-4 h-4 ml-1 text-primary" />
+              
             </div>
           </CardContent>
         </Card>

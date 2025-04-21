@@ -79,16 +79,16 @@ export function PatientsList() {
         <div className="rounded-md border">
         <div className="relative w-full overflow-auto">
           <table className="w-full caption-bottom text-sm">
-            <thead className="bg-muted/50">
+            <thead className="bg-primary ">
               <tr className="border-b transition-colors">
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground w-8">#</th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Patient</th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground hidden md:table-cell">Contact</th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground hidden lg:table-cell">DOB</th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground hidden md:table-cell">Last Visit</th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground hidden lg:table-cell">Next Appointment</th>
-                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground w-10">Actions</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-white w-8">#</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-white">Patient</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-white hidden md:table-cell">Contact</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-white hidden lg:table-cell">DOB</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-white">Status</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-white hidden md:table-cell">Last Visit</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-white hidden lg:table-cell">Next Appointment</th>
+                <th className="h-12 px-4 text-left align-middle font-medium text-white w-10">Actions</th>
               </tr>
             </thead>
             <tbody>

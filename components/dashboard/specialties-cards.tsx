@@ -51,12 +51,12 @@ export function SpecialtiesCards() {
         {specialties.map((specialty, index) => (
           <Card key={index} className="rounded-3xl overflow-hidden transition-all hover:shadow-md">
             <CardContent className="p-6 flex flex-col items-center justify-center text-center space-y-4">
-              <div className="rounded-full p-3 bg-primary/10">
-                <specialty.icon className="h-6 w-6 text-primary" />
+              <div>
+                <specialty.icon className="h-8 w-8 text-muted-foreground" />
               </div>
               <div>
-                <CardTitle className="text-lg">{specialty.name}</CardTitle>
-                <p className="mt-1 text-sm text-muted-foreground">{specialty.count} patients</p>
+                <CardTitle className="text-lg text-muted-foreground">{specialty.name}</CardTitle>
+                <p className="mt-1 text-sm text-primary">{specialty.count} patients</p>
               </div>
             </CardContent>
           </Card>
