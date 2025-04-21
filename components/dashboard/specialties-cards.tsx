@@ -36,11 +36,20 @@ const specialties = [
 
 export function SpecialtiesCards() {
   return (
-    <div>
-      <h2 className="text-2xl font-bold tracking-tight mb-4">Specialties</h2>
+    <Card>
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between">
+          <div>
+            <CardTitle>Specialties</CardTitle>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <div>
+      
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {specialties.map((specialty, index) => (
-          <Card key={index} className="overflow-hidden transition-all hover:shadow-md">
+          <Card key={index} className="rounded-3xl overflow-hidden transition-all hover:shadow-md">
             <CardContent className="p-6 flex flex-col items-center justify-center text-center space-y-4">
               <div className="rounded-full p-3 bg-primary/10">
                 <specialty.icon className="h-6 w-6 text-primary" />
@@ -54,5 +63,7 @@ export function SpecialtiesCards() {
         ))}
       </div>
     </div>
+      </CardContent>
+    </Card>
   );
 }

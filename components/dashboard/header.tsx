@@ -71,7 +71,36 @@ export function Header() {
             </div>
           </DropdownMenuContent>
         </DropdownMenu>
+
         <ThemeToggle />
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button size="icon" className="relative bg-background rounded-full">
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D"
+                  alt="Mulher sorrindo"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+              <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full flex items-center justify-center bg-green-600 shadow-[0_0_8px_3px_rgba(34,197,94,0.6)]"></span>
+              
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-80">
+            
+           
+            <div className='items-center flex flex-col px-4 py-2'>
+              <p className="text-sm font-medium">Dr. Rebecca Chen</p>
+              <p className="text-xs text-muted-foreground">Administrator</p>
+            </div>
+            
+            <div className=" p-2">
+              <Button variant="destructive" size="sm" className="w-full">
+                Logout
+              </Button>
+            </div>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   );

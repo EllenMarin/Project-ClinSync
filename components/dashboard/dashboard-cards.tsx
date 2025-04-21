@@ -1,4 +1,4 @@
-import { Eye, CalendarClock, DollarSign, TrendingUp } from 'lucide-react';
+import { Eye, CalendarClock, TrendingUp, EuroIcon } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function DashboardCards() {
@@ -21,10 +21,10 @@ export function DashboardCards() {
     },
     {
       title: "Revenue",
-      value: "$24,689",
+      value: "24,689€",
       description: "This month",
       change: "+10.3%",
-      icon: DollarSign,
+      icon: EuroIcon,
       trend: "up"
     },
     {
