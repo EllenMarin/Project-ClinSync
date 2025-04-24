@@ -9,7 +9,7 @@ Criar projeto com:
 
 React e Next.js
 
-Instalar: Tailwind CSS, Fastify para API backend, Zod para validações de schemas e Prisma para ORM
+Instalar: Tailwind CSS, Fastify para API backend, Zod para validações de formulário(react hook forms) e Prisma para ORM
 
 👥 2. Modelagem de Dados 
 
