@@ -47,13 +47,20 @@ Ficha do paciente (médico)
 
 Registro de consulta (admin e paciente)
 
-🔒 5. Controle de Acesso Paciente só vê os próprios dados
+🔒 5. Sistema de controle de acesso baseado em papéis (RBAC) na aplicação, garantindo que apenas usuários autorizados possam acessar determinadas partes do sistema.
 
 Médico vê ficha dos seus pacientes
 
 Admin vê todos os dados
 
 Proteção de rotas no front e no back
+
+-> Fluxo de funcionamento:
+1-Docker inicia container com PostgreSQL
+2-Prisma se conecta ao banco usando a url definida em variáveis de ambiente
+3-Schema do prisma define a estrutura das tabelas no banco
+4-Seed popula o banco com dados iniciais
+5-App usa client Prisma (de lib/prisma.ts) para fazer operações no banco
 
 🚀 6. Deploy Frontend na Vercel
 

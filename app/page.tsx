@@ -27,11 +27,11 @@ export default async function Home() {
 
          <div className='flex gap-4'>
            {
-            userId ? <>
+            userId ? (<>
               
               <UserButton />
             </>
-            : 
+            ):  
             <>
               <Link href="/sign-up">
                 <Button className='mt-4 bg-primary hover:bg-primary-foreground text-white hover:text-primary font-bold py-2 px-4 rounded'>New Account</Button>

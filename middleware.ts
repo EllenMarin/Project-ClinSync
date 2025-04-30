@@ -1,6 +1,38 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+/*configs do middleware usando clerk
+  1-importa funções do clerk e rotas definidas
+  2-cria matchers cada rota definida no arquivo rotas
+  3-protegue rotas para que apenas usuários com determinados roles possam acessa-los
+*/
 
-export default clerkMiddleware();
+import { clerkMiddleware } from "@clerk/nextjs/server";
+import { routeMatchers } from "./lib/routes";
+import { NextRequest, NextResponse } from "next/server";
+
+const checkRoleAndRedirect = (
+  req: NextRequest,
+  role: string | undefined,
+  allowedRole: keyof typeof routeMatchers
+): NextResponse | undefined => {
+  if(routeMatchers[allowedRole](req) && role !== allowedRole){
+    const url = new URL("/", req.url);
+    console.log("Unauthorides access, redirecting to: ", url);
+    return NextResponse.redirect(url);
+  }
+}
+
+export default clerkMiddleware(async (auth,req)=> {
+  const { userId, sessionClaims } = await auth();
+  
+  const role = (sessionClaims?.metadata as {role?: string})?.role;
+  console.log(role);
+
+  const response =
+    checkRoleAndRedirect(req, role, "admin") ||
+    checkRoleAndRedirect(req, role, "doctor");
+
+  if(response) return response;
+
+});
 
 export const config = {
   matcher: [

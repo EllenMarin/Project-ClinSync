@@ -5,7 +5,7 @@ import { SpecialtiesCards } from '@/components/dashboard/specialties-cards';
 import { DashboardHeader } from '@/components/dashboard/dashboard-header';
 import { PatientsList } from '@/components/patients/patients-list';
 
-export default function DashboardPage() {
+export default function AdminPage() {
   return (
     <div className="space-y-6">
       <DashboardHeader />
