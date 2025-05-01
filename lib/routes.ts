@@ -1,7 +1,7 @@
-import { createRouteMatcher } from "@clerk/nextjs/server";
-import { create } from "domain";
+//import { createRouteMatcher } from "@clerk/nextjs/server";
+//import { create } from "domain";
 
-/*"roles" de usuário têm permissão para acessar determinadas rotas
+//"roles" de usuário têm permissão para acessar determinadas rotas
 
 type RouteAcessProps = {
     [key: string]: string[];
@@ -12,7 +12,8 @@ export const routeAccess: RouteAcessProps = {
     "/patient(.*)": ["admin", "patient", "doctor"],
     "/doctor(.*)": ["admin", "doctor"],
 
-};*/
+};
+/*
 export const routeMatchers = {
     admin:createRouteMatcher([
         "/admin(.*)",
@@ -27,4 +28,4 @@ export const routeMatchers = {
         "/doctor(.*)",
         "/doctor/registrations"
     ])
-}
+}*/

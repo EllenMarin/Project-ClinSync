@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { UserButton } from '@clerk/nextjs';
 
 export function Header() {
   return (
@@ -74,14 +75,17 @@ export function Header() {
 
         <ThemeToggle />
 
-        <DropdownMenu>
+        <UserButton />
+        
+        {/*<DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button size="icon" className="relative bg-background rounded-full">
                 <img
                   src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D"
                   alt="Mulher sorrindo"
                   className="w-10 h-10 rounded-full object-cover"
-                />
+              />
+                
               <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full flex items-center justify-center bg-green-600 shadow-[0_0_8px_3px_rgba(34,197,94,0.6)]"></span>
               
             </Button>
@@ -100,7 +104,7 @@ export function Header() {
               </Button>
             </div>
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu>*/}
       </div>
     </header>
   );

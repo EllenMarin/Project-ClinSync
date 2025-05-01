@@ -53,7 +53,7 @@ Médico vê ficha dos seus pacientes
 
 Admin vê todos os dados
 
-Proteção de rotas no front e no back
+--- Proteção de rotas no front e no back ---
 
 -> Fluxo de funcionamento:
 1-Docker inicia container com PostgreSQL
@@ -61,6 +61,16 @@ Proteção de rotas no front e no back
 3-Schema do prisma define a estrutura das tabelas no banco
 4-Seed popula o banco com dados iniciais
 5-App usa client Prisma (de lib/prisma.ts) para fazer operações no banco
+
+--- Fluxo de inicio de seção ---
+1- Quando um usuário faz login, clerk atribui uma função ao usuário (paciente, médico, admin), armazenado nos metadados de sessão
+2- Quando o usuario tenta acessar uma rota, o middleware intercepta a requisição
+3- Middleware verifica se a função do usuário usando os metadados da sessão
+4- Compara a rota solicitada com as rotas permitidas para aquela função usando matchers
+5- Se o usuário não tem permição é redirecionado para a pagina inicial
+    Admin -> pode acessar todas as rotas
+    Doctor -> só pode acessar a rota doctor
+    Patient -> só pode acessar a rota patient
 
 🚀 6. Deploy Frontend na Vercel
 
