@@ -20,28 +20,36 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { set } from 'date-fns';
+import ProfileImage from '../profile-image';
+import {LogoutButton} from './logout-button';
+
+const ACCESS_LEVELS_ALL = [
+  "admin",
+  "doctor",
+  "patient",
+]
 
 const sidebarLinks = [
-  { name: 'Dashboard', href: '/', icon: LayoutDashboard },
-  { name: 'Patients', href: '/patients', icon: Users },
-  { name: 'Doctors', href: '/doctors', icon: Clipboard },
-  { name: 'Appointments', href: '/appointments', icon: Calendar },
-  { name: 'Medical Records', href: '/records', icon: FileText },
-  { name: 'Reports', href: '/reports', icon: BarChart },
-  { name: 'Settings', href: '/settings', icon: Settings },
   { 
-    name: 'Login/Signup', 
-    icon: LogIn,
+    name: 'Dashboard', 
+    icon: LayoutDashboard,
     children: [
-      { name: 'Login', href: '/login' },
-      { name: 'Signup', href: '/signup' },
-      { name: 'Forgot Password', href: '/forgot-password' },
+      { name: 'Dashboard', href: '/' },
+      { name: 'Profile', href: 'profile' },
     ],
+    access: ACCESS_LEVELS_ALL,
   },
+  { name: 'Patients', href: '/patients', icon: Users, access: ["admin", "doctor"] },
+  { name: 'Doctors', href: '/doctors', icon: Clipboard, access: ["admin"] },
+  { name: 'Appointments', href: '/appointments', icon: Calendar, access: ["patient", "admin"] },
+  { name: 'Medical Records', href: '/records', icon: FileText, access: ["admin", "doctor"] },
+  { name: 'Reports', href: '/reports', icon: BarChart, access: ["admin", "doctor"] },
+  { name: 'Settings', href: '/settings', icon: Settings, access: ACCESS_LEVELS_ALL },
+  
 ];
-
-export function Sidebar() {
+//receber o role como prop
+export function Sidebar({role}: {role: string}) {
+  
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
@@ -93,24 +101,17 @@ export function Sidebar() {
           </Button>
         </div>
 
-        <div className="p-4 gap-4 flex flex-col items-center ">
-          <img
-            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRvY3RvcnxlbnwwfHwwfHx8MA%3D%3D"
-            alt="Mulher sorrindo"
-            className="w-16 h-16 rounded-full object-cover"
-          />
-          <div className='items-center flex flex-col'>
-            <p className="text-sm font-medium">Dr. Rebecca Chen</p>
-            <p className="text-xs text-muted-foreground">Administrator</p>
-          </div>
-        </div>  
+        <ProfileImage />
         
         <ScrollArea className="flex-1 py-4 border-t">
           <nav className="px-2 space-y-1">
-            {sidebarLinks.map((item) => {
+            {sidebarLinks
+            .filter(item => !item.access || item.access.includes(role))
+            .map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
 
+              //código para submenus
               if (item.children) {
                 const isSubOpen = openMenus[item.name];
                 return (
@@ -130,11 +131,18 @@ export function Sidebar() {
                     </button>
                     {isSubOpen && (
                     <div className="ml-6 space-y-1">
-                      {item.children.map((child) => {
+                      {item.children?.map((child) => {
+                        
+                        {/*link do profile dinamicamente
+                        let href = child.href
+                         if(child.name === 'Profile'){
+                          href = `/${role}/profile`;
+                         } */}
+                        
                         const isChildActive = pathname === child.href;
                         return (
                           <Link
-                            key={child.href}
+                            key={child.name}
                             href={child.href}
                             className={cn(
                               "block rounded-md px-3 py-2 text-sm transition-colors",
@@ -172,8 +180,11 @@ export function Sidebar() {
                 </Link>
               );
             })}
+            
+            <LogoutButton />
           </nav>
         </ScrollArea>
+
         <div className="border-t p-4 ">
           <div className="flex items-center bg-primary p-3 gap-2 rounded-md mt-auto">
             <div className="h-10 w-10 flex items-center justify-center">
