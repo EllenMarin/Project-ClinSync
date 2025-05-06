@@ -119,7 +119,7 @@ export function AddPatientDialog({
                   <FormItem>
                     <FormLabel>First Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="John" {...field} />
+                      <Input placeholder="First Name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -132,7 +132,7 @@ export function AddPatientDialog({
                   <FormItem>
                     <FormLabel>Last Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Doe" {...field} />
+                      <Input placeholder="Last Name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -148,7 +148,7 @@ export function AddPatientDialog({
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="johndoe@example.com" {...field} />
+                      <Input placeholder="jhndoe@gmail.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -161,7 +161,7 @@ export function AddPatientDialog({
                   <FormItem>
                     <FormLabel>Phone Number</FormLabel>
                     <FormControl>
-                      <Input placeholder="(555) 123-4567" {...field} />
+                      <Input placeholder="(+351) 123 456 789" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -224,7 +224,7 @@ export function AddPatientDialog({
                             )}
                           >
                             {field.value ? (
-                              format(field.value, "PPP")
+                              format(field.value, "dd/MM/yyyy")
                             ) : (
                               <span>Pick a date</span>
                             )}
@@ -288,7 +288,7 @@ export function AddPatientDialog({
                 <FormItem>
                   <FormLabel>Address</FormLabel>
                   <FormControl>
-                    <Input placeholder="123 Main St, City, State, Zip" {...field} />
+                    <Input placeholder="Av. Portugal n7, Lisboa" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { UserButton } from '@clerk/nextjs';
+import ClientOnly from '@/client-only';
 
 export function Header() {
   return (
@@ -75,8 +76,12 @@ export function Header() {
 
         <ThemeToggle />
 
-        <UserButton />
-        
+        <div className="relative">
+          <ClientOnly  >
+            <UserButton appearance={{ elements: { avatarBox: "w-11 h-11" }}}/>
+            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full flex items-center justify-center bg-green-600 shadow-[0_0_8px_3px_rgba(34,197,94,0.6)]"></span>
+          </ClientOnly>
+        </div>
         {/*<DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button size="icon" className="relative bg-background rounded-full">

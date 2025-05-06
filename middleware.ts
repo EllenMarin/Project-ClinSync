@@ -1,9 +1,14 @@
-/*configs do middleware usando clerk
-  1-importa funções do clerk e rotas definidas
-  2-cria matchers cada rota definida no arquivo rotas
-  3-protegue rotas para que apenas usuários com determinados roles possam acessa-los
+/*Fluxo:
+  Authenticação: atraves do clerk
+  Role: clerk atribui um role que é armazenado nos metadados de sessao
+  Requisisção: usuario tenta acessar uma rota
+  Interceptação: middleware intercepta a requisição
+  Verificação do role: o middleware obtem o role do usuario nos metadados da secap
+  Verificação de permissão: o middleware verifica se o role do usuario tem permissão para acessar a rota
+  Permissão concedida: Se o usuario tem permissão a requisição continua normalmente, se nao é direcionado para /patient
 */
 
+//Cria matchers para cada padrão de rota definido em routeAccess
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 //import { routeMatchers } from "./lib/routes";
 import {  NextResponse } from "next/server";
@@ -15,15 +20,16 @@ const matchers = Object.keys(routeAccess).map((route) => ({
 }));
 
 export default clerkMiddleware(async (auth,req)=> {
+  //obtem informaçoes do usuario autentiado
   const { userId, sessionClaims } = await auth();
   const url = new URL(req.url);
-  
+  //determina o role do usuario
   const role = 
     userId && sessionClaims?.metadata.role 
-      ? sessionClaims.metadata.role
+      ? sessionClaims.metadata.role//usa o role definido no inicio da sessao
       : userId
-      ? "patient"
-      : "sign-in";
+      ? "patient" //se autenticado mas sem role, assume patient
+      : "sign-in";// senao autenticado assume sign-in
   
     const matchingRoute = matchers.find(({matcher}) => matcher(req));
 

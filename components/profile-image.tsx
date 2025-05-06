@@ -13,7 +13,7 @@ export default function ProfileImage(){
             className="w-[100px] h-[100px] rounded-full object-cover"
           />
           <div className='items-center flex flex-col'>
-            <p className="text-sm font-medium">{user.firstName}</p>
+            <p className="text-sm font-medium">{user.fullName}</p>
             <p className="text-xs text-muted-foreground">{user.emailAddresses[0].emailAddress}</p>
           </div>
         </div>  
