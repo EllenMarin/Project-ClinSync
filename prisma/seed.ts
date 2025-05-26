@@ -7,7 +7,7 @@ async function main() {
   try {
     console.log('Starting seeding...');
 
-    // Clear existing data (optional - be careful in production)
+    // 
     console.log('Clearing existing data...');
     await prisma.appointment.deleteMany({});
     await prisma.patient.deleteMany({});
@@ -16,7 +16,7 @@ async function main() {
     await prisma.user.deleteMany({});
     console.log('Existing data cleared.');
 
-    // Create admin user
+    // Criar admin user
     const adminPassword = await hash('admin123', 10);
     const admin = await prisma.user.create({
       data: {
@@ -33,7 +33,7 @@ async function main() {
     });
     console.log(`Created admin user with id: ${admin.id}`);
 
-    // Create doctors
+    // Criar doctors
     const doctorPassword = await hash('doctor123', 10);
     
     const doctor1 = await prisma.user.upsert({
@@ -46,7 +46,7 @@ async function main() {
         role: Role.DOCTOR,
         doctorProfile: {
           create: {
-            specialty: 'Cardiologia',
+            specialty: 'Cardiology',
             licenseNumber: 'CRM-12345',
           },
         },
@@ -67,7 +67,7 @@ async function main() {
         role: Role.DOCTOR,
         doctorProfile: {
           create: {
-            specialty: 'Neurologia',
+            specialty: 'Neurology',
             licenseNumber: 'CRM-67890',
           },
         },
@@ -88,7 +88,7 @@ async function main() {
         role: Role.DOCTOR,
         doctorProfile: {
           create: {
-            specialty: 'Dermatologia',
+            specialty: 'Dermatology',
             licenseNumber: 'CRM-23456',
           },
         },
@@ -109,7 +109,7 @@ async function main() {
         role: Role.DOCTOR,
         doctorProfile: {
           create: {
-            specialty: 'Ortopedia',
+            specialty: 'Orthopedics',
             licenseNumber: 'CRM-34567',
           },
         },
@@ -130,7 +130,7 @@ async function main() {
         role: Role.DOCTOR,
         doctorProfile: {
           create: {
-            specialty: 'Pediatria',
+            specialty: 'Pediatrics',
             licenseNumber: 'CRM-45678',
           },
         },
@@ -141,7 +141,7 @@ async function main() {
     });
     console.log(`Created doctor with id: ${doctor5.id}`);
 
-    // Create patients
+    // Criar patients
     const patientPassword = await hash('patient123', 10);
     
     const patient1 = await prisma.user.upsert({
@@ -298,7 +298,7 @@ async function main() {
     });
     console.log(`Created patient with id: ${patient7.id}`);
 
-    // Create appointments
+    // Criar appointments
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     tomorrow.setHours(10, 0, 0, 0);
@@ -319,11 +319,11 @@ async function main() {
     oneMonth.setMonth(oneMonth.getMonth() + 1);
     oneMonth.setHours(11, 30, 0, 0);
 
-    // First, clear any existing appointments
+    // Primeiro limpe todos os apppoitments existentes
     await prisma.appointment.deleteMany({});
     console.log('Cleared existing appointments');
 
-    // Check if profiles exist before creating appointments
+    // Check se os perfis existem depois criar appointments
     if (!patient1.patientProfile || !doctor1.doctorProfile) {
       throw new Error('Patient or doctor profile missing for appointment 1');
     }
@@ -346,7 +346,7 @@ async function main() {
     const appointment2 = await prisma.appointment.create({
       data: {
         patientId: patient2.patientProfile.id,
-        doctorId: doctor2.doctorProfile.id,
+        doctorId: doctor1.doctorProfile.id,
         date: nextWeek,
         status: AppointmentStatus.SCHEDULED,
         notes: 'Primeira consulta - Neurologia',

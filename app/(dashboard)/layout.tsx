@@ -1,5 +1,5 @@
-import { Sidebar } from '@/components/dashboard/sidebar';
-import { Header } from '@/components/dashboard/header';
+import { Sidebar } from '@/components/dashboardAdmin/sidebar';
+import { Header } from '@/components/dashboardAdmin/header';
 import { getRole } from '@/utils/roles';
 
 export default async function DashboardLayout({

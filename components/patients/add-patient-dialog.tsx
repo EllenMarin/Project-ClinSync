@@ -85,7 +85,7 @@ export function AddPatientDialog({
   function onSubmit(values: AddPatientFormValues) {
     setIsSubmitting(true);
     
-    // Simulate API call
+    /* Simulação de chamada a api
     setTimeout(() => {
       console.log(values);
       setIsSubmitting(false);
@@ -96,7 +96,8 @@ export function AddPatientDialog({
         title: "Patient added",
         description: `${values.firstName} ${values.lastName} has been added successfully.`,
       });
-    }, 1000);
+    }, 1000);*/
+    
   }
 
   return (

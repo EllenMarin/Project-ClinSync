@@ -1,8 +1,8 @@
-import { DashboardCards } from '@/components/dashboard/dashboard-cards';
-import { AppointmentsTable } from '@/components/dashboard/appointments-table';
-import { DashboardCharts } from '@/components/dashboard/dashboard-charts';
-import { SpecialtiesCards } from '@/components/dashboard/specialties-cards';
-import { DashboardHeader } from '@/components/dashboard/dashboard-header';
+import { DashboardCards } from '@/components/dashboardAdmin/dashboard-cards';
+import { AppointmentsTable } from '@/components/dashboardAdmin/appointments-table';
+import { DashboardCharts } from '@/components/dashboardAdmin/dashboard-charts';
+import { SpecialtiesCards } from '@/components/dashboardAdmin/specialties-cards';
+import { DashboardHeader } from '@/components/dashboardAdmin/dashboard-header';
 import { PatientsList } from '@/components/patients/patients-list';
 
 export default function AdminPage() {
