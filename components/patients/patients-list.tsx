@@ -100,7 +100,7 @@ export function PatientsList() {
                   <td className="p-4 align-middle">{patient.id}</td>
                   <td className="p-4 align-middle">
                     <div className="flex items-center gap-3">
-                      <Avatar className="h-8 w-8">
+                      <Avatar className="h-8 w-8" name={''}>
                         <AvatarImage alt={patient.name} />
                         <AvatarFallback>{patient.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                       </Avatar>

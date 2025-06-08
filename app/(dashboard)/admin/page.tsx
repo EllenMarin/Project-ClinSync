@@ -1,3 +1,5 @@
+"use client";
+
 import { DashboardCards } from '@/components/dashboardAdmin/dashboard-cards';
 import { AppointmentsTable } from '@/components/dashboardAdmin/appointments-table';
 import { DashboardCharts } from '@/components/dashboardAdmin/dashboard-charts';

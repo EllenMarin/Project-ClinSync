@@ -103,7 +103,7 @@ export function Sidebar({role}: {role: string}) {
 
         <ProfileImage />
         
-        <ScrollArea className="flex-1 py-4 border-t">
+        <ScrollArea className="flex-1 py-4 border-t flex-grow overflow-auto">
           <nav className="px-2 space-y-1">
             {sidebarLinks
             .filter(item => !item.access || item.access.includes(role))

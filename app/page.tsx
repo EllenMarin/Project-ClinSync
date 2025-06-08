@@ -14,10 +14,11 @@ export default async function Home() {
   if(userId && role){
     redirect(`/${role}`);
   }
+  
+  if (!userId) {
+    redirect('/sign-in')
+  }
 
-  console.log(userId);
-  // Redirect to dashboard on root path
-  //redirect('/');
   return(
   <>
     <div className='flex flex-col items-center justify-center h-screen p-6'>

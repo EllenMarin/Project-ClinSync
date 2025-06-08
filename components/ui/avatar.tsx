@@ -7,6 +7,8 @@ import { cn } from '@/lib/utils';
 
 interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string
+  src?: string
+  alt?: string
   size?: "sm" | "md" | "lg"
   className?: string
 }
@@ -14,6 +16,8 @@ interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
 const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   ({ name, size = "md", className, ...props }, ref) => {
     const getInitials = (name: string) => {
+
+      if (!name) return '';
       return name
         .split(' ')
         .map(word => word.charAt(0))
