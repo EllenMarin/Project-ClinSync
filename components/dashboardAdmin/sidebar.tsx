@@ -41,7 +41,15 @@ const sidebarLinks = [
   },
   { name: 'Patients', href: '/patients', icon: Users, access: ["admin", "doctor"] },
   { name: 'Doctors', href: '/doctors', icon: Clipboard, access: ["admin"] },
-  { name: 'Appointments', href: '/appointments', icon: Calendar, access: ["patient", "admin"] },
+  { 
+    name: 'Appointments', 
+    icon: Calendar,
+    children: [
+      { name: 'Appointments', href: '/appointments', access: ACCESS_LEVELS_ALL },
+      { name: 'Appointments List', href: '/appointments-list', access: ["admin"] },
+      { name: 'Booking', href: '/booking', access: ACCESS_LEVELS_ALL },
+    ],
+  },
   { name: 'Medical Records', href: '/records', icon: FileText, access: ["admin", "doctor"] },
   { name: 'Reports', href: '/reports', icon: BarChart, access: ["admin", "doctor"] },
   { name: 'Settings', href: '/settings', icon: Settings, access: ACCESS_LEVELS_ALL },

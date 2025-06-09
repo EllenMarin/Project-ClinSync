@@ -1,24 +1,5 @@
 "use client";
 import React from 'react';
-import { 
-  User, 
-  Calendar, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  FileText, 
-  Activity, 
-  Heart, 
-  Droplets, 
-  Thermometer,
-  Eye,
-  Download,
-  ExternalLink,
-  Clock,
-  DollarSign,
-  TrendingUp,
-  Pill
-} from 'lucide-react';
 import MoreInformation from '@/components/dashboardPatients/more-information';
 import Pharmacy from '@/components/dashboardPatients/pharmacy';
 import HealthActivity from '@/components/dashboardPatients/health-activity';
