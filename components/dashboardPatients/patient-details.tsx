@@ -1,3 +1,4 @@
+import { useUser } from "@clerk/nextjs";
 import { Calendar, Droplets, User } from "lucide-react";
 
  // Mock data for the patient
@@ -14,6 +15,13 @@ import { Calendar, Droplets, User } from "lucide-react";
 
 
 const PatientDetails = () => {
+
+  const { user, isLoaded } = useUser();
+
+  if (!isLoaded) return <div> Loading...</div>;
+
+  if(!user) return null;
+
     return(
       <>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
@@ -24,7 +32,7 @@ const PatientDetails = () => {
               </div>
               <div className="ml-4">
                 <p className="text-sm text-gray-500">Name</p>
-                <p className="text-lg font-semibold text-gray-900">{patientData.name}</p>
+                <p className="text-lg font-semibold text-gray-900">{user.fullName}</p>
               </div>
             </div>
           </div>
