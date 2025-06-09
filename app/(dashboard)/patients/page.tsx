@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { PatientsList } from '@/components/patients/patients-list';
-import { AddPatientDialog } from '@/components/patients/add-patient-dialog';
+import { PatientsList } from '@/components/dashboardPatients/patients-list';
+import { AddPatientDialog } from '@/components/dashboardPatients/add-patient-dialog';
 
 export default function PatientsPage() {
   const [open, setOpen] = useState(false);

@@ -5,7 +5,7 @@ import { AppointmentsTable } from '@/components/dashboardAdmin/appointments-tabl
 import { DashboardCharts } from '@/components/dashboardAdmin/dashboard-charts';
 import { SpecialtiesCards } from '@/components/dashboardAdmin/specialties-cards';
 import { DashboardHeader } from '@/components/dashboardAdmin/dashboard-header';
-import { PatientsList } from '@/components/patients/patients-list';
+import { PatientsList } from '@/components/dashboardPatients/patients-list';
 
 export default function AdminPage() {
   return (
