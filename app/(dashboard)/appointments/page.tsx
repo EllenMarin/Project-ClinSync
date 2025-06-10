@@ -100,6 +100,10 @@ const AppointmentsPage = () => {
 
   const router = useRouter();
 
+  const handlerAppointmentClick = ()=> {
+    router.push('/booking');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -198,7 +202,9 @@ const AppointmentsPage = () => {
             </div>
 
             {/* Calendar Days */}
-            <div className="grid grid-cols-7 gap-px bg-gray-200 rounded-lg overflow-hidden">
+            <div 
+              onClick={handlerAppointmentClick}
+              className="grid grid-cols-7 gap-px bg-gray-200 rounded-lg overflow-hidden cursor-pointer hover:bg-teal-200 transition-colors">
               {days.map((day, index) => (
                 <div
                   key={index}
@@ -216,7 +222,8 @@ const AppointmentsPage = () => {
                   
                   {day.appointments > 0 && day.isCurrentMonth && (
                     <div className="space-y-1">
-                      <div className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium">
+                      <div 
+                        className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-xs font-medium ">
                         {day.appointments} Appointments
                       </div>
                     </div>
