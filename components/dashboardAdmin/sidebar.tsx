@@ -65,7 +65,7 @@ const SIDEBAR_LINKS: MenuItem[] = [
     access: ADMIN_ONLY 
   },
   { 
-    name: 'Appintments', 
+    name: 'Appointments', 
     icon: Calendar,
     access: ALL_ROLES,
     children: [

@@ -8,6 +8,10 @@ import TaskList from '@/components/dashboardDoctor/task-list';
 import { AppointmentType, PatientType, TaskType } from '@/types/types';
 import PatientList from "@/components/dashboardDoctor/patient-list";
 import QuickActions from "@/components/dashboardDoctor/quick-actions";
+import { useRouter } from "next/navigation";
+import { AddPatientDialog } from "@/components/dashboardPatients/add-patient-dialog";
+import { useState } from "react";
+import { AddTaskDialog } from "@/components/dashboardDoctor/add-doctor-dialog";
 
 const appointments: AppointmentType[] = [
   {
@@ -192,11 +196,32 @@ const tasks: TaskType[] = [
 
 
 const DoctorPage = ()=> {
+  const router = useRouter();
 
-    const handleActionClick = (action: string) => {
-      console.log(`Action clicked: ${action}`);
-      // implementar handle actionClick/navigation logic para cada um handleViewAllAppointments, handleAddNewAppointment, handleAddTask, handleCompleteTask
-    };
+  const handleViewAllAppointments = () => {
+    router.push('/appointments-list');
+  }
+  const handleAddNewAppointments = () => {
+    router.push('/booking');
+  }
+
+  const [addTaskOpen, setAddTaskOpen] = useState(false);
+  const handleAddTask = () => {
+    setAddTaskOpen(true);
+  }
+  const handleViewAllPatients = () => {
+    router.push('/patients');
+  }
+
+  const [addPatientOpen, setAddPatientOpen] = useState(false);
+  const handleAddPatient = () => {
+    setAddPatientOpen(true);
+  }
+
+  const handleActionClick = (action: string) => {
+    console.log(`Action clicked: ${action}`);
+    // implementar navigation logic para cada um links do QuickActions
+  };
 
   return (
     <>
@@ -238,21 +263,31 @@ const DoctorPage = ()=> {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-6">
         <AppointmentList 
           appointments={appointments}
-          onViewAll={() => console.log('View all appointments')}
-          onAddNew={() => console.log('Add new appointment')}
+          onViewAll={handleViewAllAppointments}
+          onAddNew={handleAddNewAppointments}
         />
         
         <TaskList 
           tasks={tasks}
-          onAddTask={() => console.log('Add new task')}
-          onCompleteTask={(id) => console.log(`Complete task: ${id}`)}
+          onAddTask={handleAddTask}
+          //onCompleteTask={handleCompleteTask}
         />
       </div>
 
       <PatientList 
           patients={patients} 
-          onViewAll={() => console.log('View all patients')}
-          onAddNew={() => console.log('Add new patient')}
+          onViewAll={handleViewAllPatients}
+          onAddNew={handleAddPatient}
+      />
+
+      <AddTaskDialog
+        open={addTaskOpen}
+        onOpenChange={setAddTaskOpen}
+      />
+
+      <AddPatientDialog
+        open={addPatientOpen}
+        onOpenChange={setAddPatientOpen}
       />
 
     </>
