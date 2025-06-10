@@ -1,3 +1,4 @@
+"use client";
 import { Activity, Droplets, Heart, Thermometer } from "lucide-react";
 
 const vitalsData = [

@@ -3,38 +3,27 @@ import React, { useState } from 'react';
 import { 
   ChevronLeft, 
   ChevronRight, 
-  Calendar, 
-  Plus,
-  Clock,
-  User,
-  MapPin,
-  Phone,
-  Mail
+  
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const AppointmentsPage = () => {
-  const [currentDate, setCurrentDate] = useState(new Date(2024, 4, 1)); // May 2024
+  const [currentDate, setCurrentDate] = useState(new Date()); 
   const [viewMode, setViewMode] = useState<'month' | 'week' | 'day'>('month');
 
   // Mock appointments data
   const appointmentsData = {
   
-    '2024-05-16': 5,
-    '2024-05-17': 9,
-    '2024-05-18': 12,
-    '2024-05-19': 9,
-    '2024-05-20': 7,
-    '2024-05-21': 16,
-    '2024-05-22': 9,
-    '2024-05-23': 13,
-    '2024-05-24': 20,
-    '2024-05-25': 11,
-    '2024-05-26': 3,
-    '2024-05-27': 6,
-    '2024-05-28': 18,
-    '2024-05-29': 4,
-    '2024-05-30': 5,
-    '2024-05-31': 8,
+    '2025-06-06': 1,
+    '2025-06-07': 1,
+    '2025-06-08': 1,
+    '2025-06-09': 1,
+    '2025-06-13': 1,
+    '2025-06-15': 1,
+    '2025-06-22': 1,
+    '2025-06-23': 1,
+    '2025-06-24': 1,
+    '2025-06-25': 1,
   };
 
   const monthNames = [
@@ -109,6 +98,8 @@ const AppointmentsPage = () => {
 
   const days = getDaysInMonth(currentDate);
 
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -116,13 +107,15 @@ const AppointmentsPage = () => {
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center text-sm text-gray-500 mb-1">
-              <span>Appointments</span>
+              <span>My Appointments</span>
             </div>
             <h1 className="text-2xl font-bold text-gray-900">Appointments</h1>
           </div>
           <div className="flex items-center space-x-4">
-            <span className="text-sm text-gray-600">05/11/2025 - 06/09/2025</span>
-            <button className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors">
+            <span className="text-sm text-gray-600">08/06/2025 - 14/06/2025</span>
+            <button
+              onClick={() => router.push('/booking')}
+              className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors">
               <span>Book Appointment</span>
             </button>
           </div>

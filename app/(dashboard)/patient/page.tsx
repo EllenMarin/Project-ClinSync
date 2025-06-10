@@ -20,7 +20,7 @@ const PatientPage = () => {
         
         <div className="mb-6">
           <div className="flex items-center text-sm text-gray-500 mb-2">
-            <span>Patients Dashboard</span>
+            <span>Patient Dashboard</span>
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Patient Profile</h1>
         </div>
