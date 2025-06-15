@@ -12,7 +12,7 @@ export default async function DashboardLayout({
   const role = await getRole();
   
   return (
-    <div className="flex h-screen overflow-hidden ">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar role={role as UserRole} />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header />
