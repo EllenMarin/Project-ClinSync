@@ -106,7 +106,7 @@ export function AddPatientDialog({
         <DialogHeader>
           <DialogTitle>Add New Patient</DialogTitle>
           <DialogDescription>
-            Fill in the patient information. Click save when you're done.
+            Fill in the patient information. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
 

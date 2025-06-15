@@ -142,7 +142,7 @@ export function AddAppointmentDialog({
         <DialogHeader>
           <DialogTitle>Schedule New Appointment</DialogTitle>
           <DialogDescription>
-            Fill in the appointment details. Click save when you're done.
+            Fill in the appointment details. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
 

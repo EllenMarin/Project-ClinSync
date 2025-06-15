@@ -38,7 +38,7 @@ export function DoctorDetails({ doctor }: DoctorDetailsProps) {
         <CardHeader className="pb-4">
           <div className="flex items-center justify-between">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <Avatar className="h-16 w-16">
+              <Avatar name={doctor.name} className="h-16 w-16">
                 {doctor.avatar && <AvatarImage src={doctor.avatar} alt={doctor.name} />}
                 <AvatarFallback>{getInitials(doctor.name)}</AvatarFallback>
               </Avatar>

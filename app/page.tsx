@@ -29,7 +29,7 @@ export default async function Home() {
           </h1>
         </div>
         <div className='text-center max-w-xl flex flex-col items-center justify-center'>
-          <p> Here's an overview of your clinic. </p>
+          <p> Here&apos;s an overview of your clinic. </p>
         </div>
 
          <div className='flex gap-4'>

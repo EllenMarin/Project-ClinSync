@@ -82,7 +82,7 @@ export function ResetPasswordForm() {
               <li>Use at least 8 characters</li>
               <li>Include uppercase and lowercase letters</li>
               <li>Add numbers and special characters</li>
-              <li>Don't reuse passwords from other sites</li>
+              <li>Don&apos;t reuse passwords from other sites</li>
             </ul>
           </div>
         </div>

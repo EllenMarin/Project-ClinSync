@@ -14,7 +14,7 @@ export function DashboardHeader() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
         <p className="text-muted-foreground">
-          Welcome back, Dr. Chen. Here's an overview of your clinic.
+          Welcome back, Dr. Chen. Here&apos;s an overview of your clinic.
         </p>
       </div>
       <div className="flex items-center gap-2">

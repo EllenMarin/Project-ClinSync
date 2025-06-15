@@ -100,7 +100,7 @@ export function AddTaskDialog({
         <DialogHeader>
           <DialogTitle>Add New Task</DialogTitle>
           <DialogDescription>
-            Create a new task with details. Click save when you're done.
+            Create a new task with details. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
 
