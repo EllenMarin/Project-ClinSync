@@ -11,8 +11,7 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-// Sample appointments data for each day
-const appointmentsByDay = {
+const appointmentsByDay: { [key: string]: any[] } = {
   '2023-06-26': [
     { id: 1, patient: "Emma Wilson", time: "11:30 AM", type: "Check-up", status: "Confirmed" },
     { id: 2, patient: "James Rodriguez", time: "2:00 PM", type: "Follow-up", status: "Confirmed" },
