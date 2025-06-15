@@ -23,7 +23,7 @@ import ProfileImage from '../profile-image';
 import { LogoutButton } from './logout-button';
 
 // Tipos para melhor tipagem
-type UserRole = "admin" | "doctor" | "patient";
+export type UserRole = "admin" | "doctor" | "patient";
 
 type MenuItem = {
   name: string;
