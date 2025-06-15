@@ -75,12 +75,6 @@ const SIDEBAR_LINKS: MenuItem[] = [
     ],
   },
   { 
-    name: 'Doctors Record', 
-    href: '/records', 
-    icon: FileText, 
-    access: ADMIN_DOCTOR_ROLES 
-  },
-  { 
     name: 'Reports', 
     href: '/reports', 
     icon: BarChart, 

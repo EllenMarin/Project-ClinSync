@@ -1,6 +1,7 @@
 import { Sidebar } from '@/components/dashboardAdmin/sidebar';
 import { Header } from '@/components/dashboardAdmin/header';
 import { getRole } from '@/utils/roles';
+import { Footer } from '@/components/footer';
 
 export default async function DashboardLayout({
   children,
@@ -17,6 +18,7 @@ export default async function DashboardLayout({
         <Header />
         <main className="flex-1 overflow-y-auto bg-primary-foreground p-4 md:p-6 ">
           {children}
+          <Footer />
         </main>
       </div>
     </div>
