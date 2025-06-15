@@ -11,7 +11,14 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-const appointmentsByDay: { [key: string]: any[] } = {
+type Appointment = {
+  id: number;
+  patient: string;
+  time: string;
+  type: string;
+  status: string;
+};
+const appointmentsByDay:  Record<string, Appointment[]> = {
   '2023-06-26': [
     { id: 1, patient: "Emma Wilson", time: "11:30 AM", type: "Check-up", status: "Confirmed" },
     { id: 2, patient: "James Rodriguez", time: "2:00 PM", type: "Follow-up", status: "Confirmed" },
